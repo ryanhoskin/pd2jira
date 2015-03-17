@@ -1,0 +1,29 @@
+{
+  "name": "PagerDuty to JIRA Connector",
+  "description": "Create JIRA tickets when a PagerDuty incident has been created.",
+  "repository": "https://github.com/ryanhoskin/pd2jira",
+  "keywords": [
+    "pagerduty",
+    "JIRA"
+  ],
+  "env": {
+    "JIRA_USERNAME": {
+      "description": "The username of the JIRA user that will update the JIRA ticket."
+    },
+    "JIRA_PASSWORD": {
+      "description": "The password for your JIRA user."
+    },
+    "JIRA_SUBDOMAIN": {
+      "description": "The name of your JIRA subdomain, as it appears in the URL."
+    },
+    "JIRA_ISSUE_TYPE": {
+      "description": "The type of issue that you'd like created within JIRA (e.g. Bug, Deliverable, etc...)."
+    },
+    "PAGERDUTY_API_TOKEN": {
+      "description": "Your 20-character alphanumeric PagerDuty API Access token."
+    },
+    "PAGERDUTY_SUBDOMAIN": {
+      "description": "The name of your PagerDuty subdomain, as it appears in the URL."
+    }
+  }
+}
