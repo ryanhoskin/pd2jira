@@ -16,6 +16,9 @@
     "JIRA_SUBDOMAIN": {
       "description": "The name of your JIRA subdomain, as it appears in the URL."
     },
+    "JIRA_PROJECT": {
+      "description": "The project that you would like the ticket created in JIRA.  This field is the prefix for the project (e.g. 'SUP')"
+    },
     "JIRA_ISSUE_TYPE": {
       "description": "The type of issue that you'd like created within JIRA (e.g. Bug, Deliverable, etc...)."
     },
