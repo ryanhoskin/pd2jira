@@ -3,7 +3,7 @@ $messages = json_decode($HTTP_RAW_POST_DATA);
 
 $jira_subdomain = getenv('JIRA_SUBDOMAIN');
 $jira_username = getenv('JIRA_USERNAME');
-$jira_password = getenv('JIRA_API_TOKEN');
+$jira_password = getenv('JIRA_PASSWORD');
 $jira_project = getenv('JIRA_PROJECT');
 $jira_issue_type = getenv('JIRA_ISSUE_TYPE');
 $pd_subdomain = getenv('PAGERDUTY_SUBDOMAIN');
