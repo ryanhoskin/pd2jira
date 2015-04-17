@@ -7,3 +7,5 @@ Create JIRA tickets when a PagerDuty incident is triggered.  This is a small scr
 Screenshot of the PagerDuty incident and corresponding note:  http://note.io/1EtD9jT
 
 Screenshot of the JIRA ticket:  http://note.io/1EZTFLp
+
+For a full walkthrough on setting up the integration, please visit the integration guide [here](http://www.pagerduty.com/docs/guides/jira-integration-guide/)
