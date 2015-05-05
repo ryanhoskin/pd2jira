@@ -31,6 +31,18 @@ if ($messages) foreach ($messages->messages as $webhook) {
 
       $verb = "triggered";
 
+      //Let's make sure the note wasn't already added (Prevents a 2nd Jira ticket in the event the first request takes long enough to not succeed according to PagerDuty)
+      $url = "https://$pd_subdomain.pagerduty.com/api/v1/incidents/$incident_id/notes";
+      $return = http_request($url, "", "GET", "token", "", $pd_api_token);
+      if ($return['status_code'] == '200') {
+        foreach ($return['response']['notes'] as $value) {
+          $startsWith = "JIRA ticket";
+          if (substr($value['content'], 0, strlen($startsWith)) === $startsWith) {
+            break; //Skip it cause it would be a duplicate
+          }
+        }
+      }
+
       //Create the JIRA ticket when an incident has been triggered
       $url = "https://$jira_subdomain.atlassian.net/rest/api/2/issue/";
 
@@ -76,7 +88,9 @@ function http_request($url, $data_json, $method, $auth_type, $username, $token) 
     curl_setopt($ch, CURLOPT_USERPWD, "$username:$token");
   }
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-  curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+  if ($data_json != "") {
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+  }
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $response  = curl_exec($ch);
   $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
