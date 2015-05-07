@@ -14,6 +14,10 @@ if ($messages) foreach ($messages->messages as $webhook) {
 
   switch ($webhook_type) {
     case "incident.trigger":
+      if(file_exists('lock.txt') && file_get_contents('lock.txt') > (time() - 5)){
+        die('Should not run!');
+      }
+      file_put_contents('lock.txt', time());
       $incident_id = $webhook->data->incident->id;
       $incident_number = $webhook->data->incident->incident_number;
       $ticket_url = $webhook->data->incident->html_url;
