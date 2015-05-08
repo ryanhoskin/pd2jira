@@ -27,6 +27,10 @@
     },
     "PAGERDUTY_SUBDOMAIN": {
       "description": "The name of your PagerDuty subdomain, as it appears in the URL."
+    },
+    "WEB_CONCURRENCY": {
+      "description": "Please don't change this unless you know what you are doing. This prevents duplicate Jira issues from being created.",
+      "value": "1"
     }
   }
 }
