@@ -72,7 +72,7 @@ if ($messages) foreach ($messages->messages as $webhook) {
       else {
         //Update the PagerDuty ticket if the JIRA ticket isn't made.
         $url = "https://$pd_subdomain.pagerduty.com/api/v1/incidents/$incident_id/notes";
-        $data = array('note'=>array('content'=>"A JIRA ticket failed to be created."),'requester_id'=>"$pd_requester_id", 'request' => $response);
+        $data = array('note'=>array('content'=>"A JIRA ticket failed to be created. $response"),'requester_id'=>"$pd_requester_id");
         $data_json = json_encode($data);
         http_request($url, $data_json, "POST", "token", "", $pd_api_token);
       }
