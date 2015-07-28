@@ -101,6 +101,9 @@ function http_request($url, $data_json, $method, $auth_type, $username, $token) 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $response  = curl_exec($ch);
   $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  if(curl_errno($ch)){
+    error_log('Curl error: ' . curl_error($ch));
+  }
   curl_close($ch);
   return array('status_code'=>"$status_code",'response'=>"$response");
 }
