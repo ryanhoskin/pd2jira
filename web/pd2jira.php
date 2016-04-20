@@ -25,7 +25,7 @@ if ($messages) foreach ($messages->messages as $webhook) {
       $service_name = $webhook->data->incident->service->name;
       $assignee = $webhook->data->incident->assigned_to_user->name;
       $assignee_email = $webhook->data->incident->assigned_to_user->email;
-      $address = explode(" ", $assignee_email);
+      $address = explode("@", $assignee_email);
       
       if ($webhook->data->incident->trigger_summary_data->subject) {
         $trigger_summary_data = $webhook->data->incident->trigger_summary_data->subject;
