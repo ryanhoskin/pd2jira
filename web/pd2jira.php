@@ -2,6 +2,9 @@
 $messages = json_decode(file_get_contents("php://input"));
 
 $jira_url = getenv('JIRA_URL');
+if (substr($jira_url, strlen($jira_url)-1, 1) == "/") {
+  $jira_url = substr($jira_url, 0, strlen($jira_url)-1);
+}
 $jira_username = getenv('JIRA_USERNAME');
 $jira_password = getenv('JIRA_PASSWORD');
 $jira_project = getenv('JIRA_PROJECT');
