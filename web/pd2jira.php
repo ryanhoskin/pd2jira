@@ -35,6 +35,7 @@ if ($messages) foreach ($messages->messages as $webhook) {
       }
 
       $summary = "PagerDuty Service: $service_name, Incident #$incident_number, Summary: $trigger_summary_data";
+      $summary = trim(preg_replace('/\s+/', ' ', $summary));
       $summary = (strlen($summary) > 255) ? substr($summary,0,252) . '...' : $summary;
 
       $verb = "triggered";
