@@ -9,3 +9,5 @@ Screenshot of the PagerDuty incident and corresponding note:  http://note.io/1Et
 Screenshot of the JIRA ticket:  http://note.io/1EZTFLp
 
 For a full walkthrough on setting up the integration, please visit the integration guide [here](http://www.pagerduty.com/docs/guides/jira-integration-guide/)
+
+Full walkthrough with Heroku: [gist](https://gist.github.com/borgified/5d6b694aff76bca1018ebe80a7226de5)
